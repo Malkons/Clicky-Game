@@ -66,11 +66,11 @@ class App extends Component {
         <Navbar
           currentScore={this.state.currentScore}
           topScore={this.state.topScore}
-          message={this.state.message}
-          
         />
 
-        <Header>Don't Click The Same Picture Twice</Header>
+        <Header message={this.state.message}>
+          Don't Click The Same Picture Twice, Try and Get to 12!
+        </Header>
         {this.state.pictures.map(picture => (
           <Card
             id={picture.id}
