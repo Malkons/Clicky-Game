@@ -15,7 +15,7 @@ class App extends Component {
   };
 
   componentDidMount() {}
-
+  // shufflesArray function shuffles the pictures
   shuffleArray = array => {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
@@ -24,16 +24,18 @@ class App extends Component {
       array[j] = temp;
     }
   };
-
+  // When a picture is clicked
   selectPicture = selectedPictureId => {
     console.log(this.state.unselectedPictures);
     console.log(selectedPictureId);
+    // Finds an object in the array by its Id
     const findPictures = this.state.unselectedPictures.find(
       picture => picture.id === selectedPictureId
     );
-
+    //Checks to
     if (findPictures === undefined) {
       console.log(findPictures);
+      // Resets the state, updates the topscore if nessary.
       this.setState({
         message: "You Got it Wrong!",
         topScore:
@@ -45,10 +47,11 @@ class App extends Component {
         unselectedPictures: pictures
       });
     } else {
+      // Filters all elements that pass the test implemented by the provided function
       const newUnselectedPictures = this.state.unselectedPictures.filter(
         picture => picture.id !== selectedPictureId
       );
-
+      // Updates the state of currentScore
       this.setState({
         message: "You Got it Right!",
         currentScore: this.state.currentScore + 1,
@@ -56,10 +59,10 @@ class App extends Component {
         unselectedPictures: newUnselectedPictures
       });
     }
-
+    // Call the Shuffle Function
     this.shuffleArray(pictures);
   };
-
+  // Render the page
   render() {
     return (
       <Wrapper>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Navbar = props => (
-  <nav>
+  <nav> 
     <ul>
       <li>Current Score: {props.currentScore}</li>
 
